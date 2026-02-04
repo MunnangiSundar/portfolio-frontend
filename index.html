@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Sundar Munnangi | Data Analyst Portfolio - Excel, SQL, Power BI, Python projects">
+<meta name="keywords" content="Data Analyst, Portfolio, SQL, Power BI, Excel, Python, Sundar">
+<meta name="author" content="Sundar Munnangi">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Sundar | Data Analyst Portfolio">
+<meta property="og:description" content="Professional portfolio showcasing data analytics projects and skills.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="me.png">
+<meta property="og:url" content="https://your-portfolio-url.vercel.app">
+
+<title>Sundar | Data Analyst Portfolio</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sundar | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="header">
+  <div class="nav-container">
+    <div class="logo">Sundar</div>
+
+    <nav id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button id="themeToggle">🌙</button>
+      <div id="hamburger" class="hamburger">☰</div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero --><section id="home" class="hero reveal">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content-wrapper">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>Sundar</span></h1>
+      <h2 class="typing"></h2>
+      <p>
+        Data Analyst passionate about turning data into business insights using
+        Excel, SQL, Power BI, and Python.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="https://www.linkedin.com/in/sundar-munnangi-9b6a582b2/" class="btn outline" target="_blank" rel="noopener noreferrer" >Linkedin</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="me.png" alt="Sundar" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+
+<!-- About -->
+<section id="about" class="section about">
+  <h2>About Me</h2>
+  <p>
+    I am a Computer Science Engineering student passionate about turning data into meaningful insights using Excel, SQL, and Power BI.
+  </p>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="section skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <h3>Excel</h3>
+      <div class="progress-bar"><span style="width:90%"></span></div>
+    </div>
+
+    <div class="skill-card">
+      <h3>SQL</h3>
+      <div class="progress-bar"><span style="width:85%"></span></div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Power BI</h3>
+      <div class="progress-bar"><span style="width:80%"></span></div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Python</h3>
+      <div class="progress-bar"><span style="width:65%"></span></div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Statistics</h3>
+      <div class="progress-bar"><span style="width:75%"></span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="section projects reveal">
+  <h2>Data Analytics Projects</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <h3>📊 Sales Performance Dashboard</h3>
+      <p>
+        Built Power BI dashboard analyzing revenue, region-wise sales, and KPIs.
+      </p>
+      <div class="project-tags">
+        <span>Power BI</span>
+        <span>DAX</span>
+        <span>Excel</span>
+      </div>
+      <a href="#" target="_blank">View Project →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>🗄 SQL Customer Segmentation</h3>
+      <p>
+        Used SQL queries to segment customers and identify high-value users.
+      </p>
+      <div class="project-tags">
+        <span>SQL</span>
+        <span>PostgreSQL</span>
+      </div>
+      <a href="#" target="_blank">View Project →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>📈 Marketing Campaign Analysis</h3>
+      <p>
+        Analyzed campaign ROI and conversion funnel using Excel and Python.
+      </p>
+      <div class="project-tags">
+        <span>Excel</span>
+        <span>Python</span>
+        <span>Pandas</span>
+      </div>
+      <a href="#" target="_blank">View Project →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="resume" class="section resume reveal">
+  <h2>Resume</h2>
+  <p>Download my resume to know more about my skills and experience.</p>
+  <a href="resume.pdf" download class="btn primary">Download Resume</a>
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="section contact">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn primary">Send Message</button>
+    <p id="status"></p>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Sundar. Designed with ❤️</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
