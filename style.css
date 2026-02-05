@@ -436,6 +436,14 @@ footer {
 .message-card small {
   opacity: 0.7;
 }
+.profile-img {
+  width: 150px;       /* adjust size */
+  height: 150px;      /* same as width for perfect circle */
+  border-radius: 50%; /* makes it round */
+  object-fit: cover;  /* keeps image proportions */
+  border: 2px solid #0077b6; /* optional border */
+}
+
 
 
 /* Mobile */
