@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     statusText.innerText = "Sending... ⏳";
 
     try {
-      await emailjs.send("service_b20zgmx", "template_Ik04Ixm", data);
+      await emailjs.send("service_625d6wx", "template_lk04lxm", data);
       statusText.innerText = "Message sent successfully ✅";
       form.reset();
     } catch (error) {
