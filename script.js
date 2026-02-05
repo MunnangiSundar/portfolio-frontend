@@ -1,3 +1,7 @@
+if (window.location.search.includes("utm_")) {
+  window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+}
+
 // Mobile menu
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
