@@ -31,17 +31,23 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+  const res = await fetch("https://portfolio-backend-leje.onrender.com/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-    const result = await res.json();
-    statusText.innerText = result.message;
-    form.reset();
-  } catch (error) {
-    console.error(error);
-    statusText.innerText = "Error sending message ❌";
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(text);
   }
+
+  const result = await res.json();
+  statusText.innerText = result.message;
+  form.reset();
+} catch (error) {
+  console.error("❌ Fetch error:", error);
+  statusText.innerText = "Server unreachable. Try again later ❌";
+}
+
 });
