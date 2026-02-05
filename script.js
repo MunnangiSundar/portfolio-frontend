@@ -17,9 +17,12 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = document.body.classList.contains("light") ? "🌙" : "☀️";
 });
 
-// Contact form backend connection
+// Contact form
 const form = document.getElementById("contactForm");
 const statusText = document.getElementById("status");
+
+// EmailJS init
+emailjs.init("oUkx6oYUy5tBaNsO1");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -30,24 +33,26 @@ form.addEventListener("submit", async (e) => {
     message: document.getElementById("message").value,
   };
 
+  statusText.innerText = "Sending... ⏳";
+
   try {
-  const res = await fetch("https://portfolio-backend-leje.onrender.com/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+    // Send email
+    await emailjs.send("service_b20zgmx", "template_Ik04Ixm", data);
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(text);
+    // Send to backend
+    const res = await fetch("https://portfolio-backend-leje.onrender.com/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) throw new Error("Backend error");
+
+    const result = await res.json();
+    statusText.innerText = result.message || "Message sent successfully ✅";
+    form.reset();
+  } catch (error) {
+    console.error("❌ Error:", error);
+    statusText.innerText = "Failed to send ❌";
   }
-
-  const result = await res.json();
-  statusText.innerText = result.message;
-  form.reset();
-} catch (error) {
-  console.error("❌ Fetch error:", error);
-  statusText.innerText = "Server unreachable. Try again later ❌";
-}
-
 });
