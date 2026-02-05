@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mobile menu
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
-
   hamburger?.addEventListener("click", () => {
     navMenu.classList.toggle("active");
   });
@@ -39,22 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
     statusText.innerText = "Sending... ⏳";
 
     try {
-      await emailjs.send("service_b20zgmx", "template_Ik04Ixm", data);
-
+      // Send to backend
       const res = await fetch("https://portfolio-backend-leje.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Backend error");
+      if (!res.ok) throw new Error("Backend failed");
+
+      // Send email (non-blocking)
+      emailjs.send("service_b20zgmx", "template_Ik04Ixm", data)
+        .catch(err => console.warn("EmailJS failed:", err));
 
       const result = await res.json();
       statusText.innerText = result.message || "Message sent successfully ✅";
       form.reset();
+
     } catch (error) {
-      console.error("❌ Error:", error);
-      statusText.innerText = "Failed to send ❌";
+      console.error("❌ Submit error:", error);
+      statusText.innerText = "Server unreachable. Try again ❌";
     }
   });
 
